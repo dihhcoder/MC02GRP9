@@ -63,7 +63,7 @@ public class Input {
             try {
                 System.out.print("Enter file location of office routes: ");
                 filePath = sc.nextLine();
-                offices = r.readMap(filePath);
+                offices = r.readOffices(filePath);
                 isRead = true;
             } catch(FileNotFoundException e) {
                 System.out.println("Could not locate file. Please try again.");
