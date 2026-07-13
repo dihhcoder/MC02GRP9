@@ -83,9 +83,10 @@ public class Input {
         return offices;
     }
 
-    public static String readDestination(Scanner sc, int mailCount, List<Route> routes) {
-        String s = "";
+    public static List<String> readDestination(Scanner sc, List<Route> routes, int mailCount) {
+        List<String> destinations = new ArrayList<>();
         boolean isFound;
+        String s;
 
         for(int i = 0; i < mailCount; i++) {
             do {
@@ -94,8 +95,9 @@ public class Input {
                 s = sc.nextLine();
 
                 for(int j = 0; j < routes.size(); j++) {
-                    if(!(s.equals(routes.get(j).getOrigin())) && s.equals(routes.get(j).getPlace1())) {
+                    if(s.equals(routes.get(j).getPlace1())) {
                         isFound = true;
+                        destinations.add(s);
                         j = routes.size();
                     }
                 }
@@ -105,6 +107,6 @@ public class Input {
             } while(!isFound);
         }
 
-        return s;
+        return destinations;
     }
 }
