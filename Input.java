@@ -1,9 +1,9 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Input {
     public static int readIntChoice(Scanner sc, int min, int max) {
@@ -30,9 +30,8 @@ public class Input {
     public static List<Route> readMapFileLocation(Scanner sc) {
         List<Route> map = new ArrayList<>();
         Reader r = new Reader();
-        String filePath;
-
         boolean isRead = false;
+        String filePath;
 
         do {
             try {
@@ -55,9 +54,8 @@ public class Input {
     public static List<Route> readOfficeFileLocation(Scanner sc) {
         List<Route> offices = new ArrayList<>();
         Reader r = new Reader();
-        String filePath;
-
         boolean isRead = false;
+        String filePath;
 
         do {
             try {
