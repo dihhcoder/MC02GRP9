@@ -101,7 +101,7 @@ public class Input {
                 }
 
                 if(!isFound)
-                    System.out.println("Invalid input. Please try again.");
+                    System.out.println("Invalid input! Please enter a valid destination.");
             } while(!isFound);
         }
 
