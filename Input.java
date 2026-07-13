@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
-    public static int readIntChoice(Scanner sc, int min, int max) {
+    public static int readIntInput(Scanner sc, int min, int max) {
         int n = -1;
         boolean isValid = false;
 
@@ -15,9 +15,17 @@ public class Input {
                 n = sc.nextInt();
                 sc.nextLine();
 
-                if(!(n >= min && n <= max))
-                    System.out.println("Invalid option! Please try again.");
-                else isValid = true;
+                if(max == -1) {
+                    if (n < min)
+                        System.out.println("Invalid option! Value must be at least " + min + ".");
+                    else isValid = true;
+                }
+                else {
+                    if(!(n >= min && n <= max))
+                        System.out.println("Invalid option! Please enter a value between " +
+                                min + " and " + max + ".");
+                    else isValid = true;
+                }
             } catch(InputMismatchException e) {
                 System.out.println("Invalid input! Please enter a number.");
                 sc.nextLine();
