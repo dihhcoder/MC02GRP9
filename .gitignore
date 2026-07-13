@@ -2,6 +2,11 @@
 .idea/
 *.iml
 
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
 # Java compiled files
 out/
 *.class
