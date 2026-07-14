@@ -94,12 +94,11 @@ public class Input {
                 System.out.print("Destination of Mail " + (i + 1) + ": ");
                 s = sc.nextLine();
 
-                for(int j = 0; j < routes.size(); j++) {
-                    if(!(s.equals(routes.get(j).getOrigin() + " Post Office")) &&
-                            s.equals(routes.get(j).getPlace1())) {
+                for(Route route : routes) {
+                    if(!isFound && !(s.equals(route.getOrigin() + " Post Office")) &&
+                            s.equals(route.getPlace1())) {
                         isFound = true;
                         destinations.add(s);
-                        j = routes.size();
                     }
                 }
 
