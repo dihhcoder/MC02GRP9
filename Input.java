@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Input {
@@ -85,7 +84,7 @@ public class Input {
     }
 
     public static List<String> readDestinations(Scanner sc, List<Route> routes, int mailCount) {
-        List<String> destinations = new LinkedList<>();
+        List<String> destinations = new ArrayList<>();
         boolean isFound;
         String s;
 
