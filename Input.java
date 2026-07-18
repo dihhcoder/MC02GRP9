@@ -48,11 +48,11 @@ public class Input {
                 map = r.readMap(filePath);
                 isRead = true;
             } catch(FileNotFoundException e) {
-                System.out.println("Could not locate file. Please try again.");
+                System.out.println("Could not locate file! Please try again.");
             } catch(NumberFormatException e) {
-                System.out.println("Could not read number format. Please try again.");
+                System.out.println("Could not read number format! Please try again.");
             } catch(IOException e) {
-                System.out.println("Could not read file. Please try again.");
+                System.out.println("Could not read file! Please try again.");
             }
         } while(!isRead);
 
@@ -72,11 +72,11 @@ public class Input {
                 offices = r.readOffices(filePath);
                 isRead = true;
             } catch(FileNotFoundException e) {
-                System.out.println("Could not locate file. Please try again.");
+                System.out.println("Could not locate file! Please try again.");
             } catch(NumberFormatException e) {
-                System.out.println("Could not read number format. Please try again.");
+                System.out.println("Could not read number format! Please try again.");
             } catch(IOException e) {
-                System.out.println("Could not read file. Please try again.");
+                System.out.println("Could not read file! Please try again.");
             }
         } while(!isRead);
 
