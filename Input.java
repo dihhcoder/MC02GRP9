@@ -1,9 +1,9 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
+import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Input {
     public static int readIntInput(Scanner sc, int min, int max) {
