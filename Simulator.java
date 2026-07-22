@@ -9,7 +9,9 @@ public class Simulator {
     //other attributes
 
     public Simulator() {
-        //attribute instantiation (not including bestRoute and shortestDistance)
+        this.bestRoute = new ArrayList<>();
+        this.shortestDistance = Double.POSITIVE_INFINITY;
+        //other attribute instantiations
     }
 
     //other getters and setters
@@ -25,7 +27,7 @@ public class Simulator {
     //other methods
 
     public void findShortestPath(Graph g, Vertex start) {
-        bestRoute = new ArrayList<>();
+        bestRoute.clear();
         shortestDistance = Double.POSITIVE_INFINITY;
 
         Set<Vertex> visited = new HashSet<>();
