@@ -34,19 +34,23 @@ public class Simulator {
         visited.add(start);
 
         List<Edge> currentRoute = new ArrayList<>();
-        findPath(g, start, visited, currentRoute);
+        findPath(g, start, start, visited, currentRoute, 0.0);
     }
 
-    public void findPath(Graph g, Vertex current, Set<Vertex> visited, List<Edge> currentRoute) {
+    public void findPath(Graph g, Vertex start, Vertex current, Set<Vertex> visited,
+                         List<Edge> currentRoute, double currentDistance) {
         if(visited.size() == g.getVertexCount()) {
-            double totalDistance = 0.0;
 
-            for(Edge e : currentRoute)
-                totalDistance += e.getWeight();
+            for(Edge e : g.getNeighbors(current)) {
+                if(e.getDestination().equals(start)) {
+                    double totalDistance = currentDistance + e.getWeight();
 
-            if(totalDistance < shortestDistance) {
-                shortestDistance = totalDistance;
-                bestRoute = new ArrayList<>(currentRoute);//bestRoute = (List<Edge>) currentRoute.clone();
+                    if(totalDistance < shortestDistance) {
+                        shortestDistance = totalDistance;
+                        bestRoute = new ArrayList<>(currentRoute);//bestRoute = (List<Edge>) currentRoute.clone();
+                        bestRoute.add(e);
+                    }
+                }
             }
         }
         else {
@@ -54,10 +58,12 @@ public class Simulator {
                 Vertex next = e.getDestination();
 
                 if(!visited.contains(next)) {
+                    double totalDistance = currentDistance + e.getWeight();
+
                     visited.add(next);
                     currentRoute.add(e);
 
-                    findPath(g, next, visited, currentRoute);
+                    findPath(g, start, next, visited, currentRoute, totalDistance);
 
                     currentRoute.remove(currentRoute.size() - 1);
                     visited.remove(next);
