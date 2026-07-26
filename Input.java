@@ -108,4 +108,20 @@ public class Input {
 
         return destinations;
     }
+
+    public static String readStartingOffice(Scanner sc, List<Route> office){
+        String input;
+        boolean check =  false;
+        do{
+            System.out.print("Input starting office: ");
+            input = sc.nextLine();
+            for(Route r : office) {
+                if(!check && input.equalsIgnoreCase(r.getPlace1()) || input.equalsIgnoreCase(r.getPlace2())){
+                    check = true;
+                }
+            }
+        } while(!check);
+        
+        return input;
+    }
 }
