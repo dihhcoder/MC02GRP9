@@ -95,8 +95,7 @@ public class Input {
                 s = sc.nextLine();
 
                 for(Route r : routes) {
-                    if(!isFound && !(s.equals(r.getOrigin() + " Post Office")) &&
-                            s.equals(r.getPlace1())) {
+                    if(!isFound && s.equals(r.getPlace2()) && !destinations.contains(s)) {
                         isFound = true;
                         destinations.add(s);
                     }
