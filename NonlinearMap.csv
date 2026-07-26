@@ -1,0 +1,104 @@
+﻿Post Office,Place 1,Place 2,Distance (in km)
+Manila City,Adamson University,Far Eastern University,2.7
+Manila City,Adamson University,De La Salle University Manila,2.8
+Manila City,Adamson University,University of the East Manila Campus,2.9
+Manila City,Adamson University,University of Santo Tomas,3.3
+Manila City,Adamson University,Polytechnic University of the Philippines,4.2
+Manila City,De La Salle University Manila,University of Santo Tomas,7.3
+Manila City,De La Salle University Manila,Polytechnic University of the Philippines,7.3
+Manila City,Far Eastern University,University of Santo Tomas,0.5
+Manila City,Far Eastern University,Polytechnic University of the Philippines,3.1
+Manila City,Far Eastern University,De La Salle University Manila,5.3
+Manila City,Lyceum of the Philippines University Manila Campus,Mapua University Manila,0.29
+Manila City,Lyceum of the Philippines University Manila Campus,Adamson University,2.2
+Manila City,Lyceum of the Philippines University Manila Campus,University of the Philippines Manila,2.3
+Manila City,Lyceum of the Philippines University Manila Campus,University of the East Manila Campus,3.9
+Manila City,Lyceum of the Philippines University Manila Campus,De La Salle University Manila,4
+Manila City,Lyceum of the Philippines University Manila Campus,Far Eastern University,4.1
+Manila City,Lyceum of the Philippines University Manila Campus,University of Santo Tomas,4.7
+Manila City,Lyceum of the Philippines University Manila Campus,Polytechnic University of the Philippines,6.5
+Manila City,Manila City Post Office,Lyceum of the Philippines University Manila Campus,1.2
+Manila City,Manila City Post Office,Mapua University Manila,1.3
+Manila City,Manila City Post Office,University of the Philippines Manila,2.3
+Manila City,Manila City Post Office,Adamson University,2.6
+Manila City,Manila City Post Office,University of the East Manila Campus,3.7
+Manila City,Manila City Post Office,Far Eastern University,4
+Manila City,Manila City Post Office,De La Salle University Manila,4.1
+Manila City,Manila City Post Office,University of Santo Tomas,4.6
+Manila City,Manila City Post Office,Polytechnic University of the Philippines,5.8
+Manila City,Mapua University Manila,Adamson University,2.3
+Manila City,Mapua University Manila,University of the Philippines Manila,2.5
+Manila City,Mapua University Manila,University of the East Manila Campus,4.1
+Manila City,Mapua University Manila,Far Eastern University,4.3
+Manila City,Mapua University Manila,De La Salle University Manila,4.3
+Manila City,Mapua University Manila,University of Santo Tomas,4.9
+Manila City,Mapua University Manila,Polytechnic University of the Philippines,7
+Manila City,University of Santo Tomas,Polytechnic University of the Philippines,3
+Manila City,University of the East Manila Campus,Far Eastern University,0.5
+Manila City,University of the East Manila Campus,University of Santo Tomas,0.75
+Manila City,University of the East Manila Campus,Polytechnic University of the Philippines,2.6
+Manila City,University of the East Manila Campus,De La Salle University Manila,5
+Manila City,University of the Philippines Manila,University of the East Manila Campus,3
+Manila City,University of the Philippines Manila,University of Santo Tomas,3.4
+Manila City,University of the Philippines Manila,Far Eastern University,4.2
+Manila City,University of the Philippines Manila,Adamson University,5
+Manila City,University of the Philippines Manila,De La Salle University Manila,5.4
+Manila City,University of the Philippines Manila,Polytechnic University of the Philippines,6
+Quezon City,Quezon City Post Office,University of the Philippines Diliman,3.8
+Quezon City,Quezon City Post Office,Ateneo de Manila University,3.4
+Quezon City,Quezon City Post Office,UERM Memorial Hospital,10.7
+Quezon City,Quezon City Post Office,Polytechnic University Of The Philippines,11.1
+Quezon City,Quezon City Post Office,Grace Christian College,10.9
+Quezon City,Quezon City Post Office,Miriam College,5.8
+Quezon City,Quezon City Post Office,AMA Computer University Inc.,8.4
+Quezon City,University of the Philippines Diliman,Ateneo de Manila University,5.9
+Quezon City,University of the Philippines Diliman,UERM Memorial Hospital,11.6
+Quezon City,University of the Philippines Diliman,Polytechnic University Of The Philippines,8.4
+Quezon City,University of the Philippines Diliman,Grace Christian College,11.7
+Quezon City,University of the Philippines Diliman,Miriam College,6.8
+Quezon City,University of the Philippines Diliman,AMA Computer University Inc.,7.4
+Quezon City,Ateneo de Manila University,UERM Memorial Hospital,13.5
+Quezon City,Ateneo de Manila University,Polytechnic University Of The Philippines,9.4
+Quezon City,Ateneo de Manila University,Grace Christian College,13.7
+Quezon City,Ateneo de Manila University,Miriam College,1
+Quezon City,Ateneo de Manila University,AMA Computer University Inc.,9.3
+Quezon City,UERM Memorial Hospital,Polytechnic University Of The Philippines,16.9
+Quezon City,UERM Memorial Hospital,Grace Christian College,7.1
+Quezon City,UERM Memorial Hospital,Miriam College,11.2
+Quezon City,UERM Memorial Hospital,AMA Computer University Inc.,12.1
+Quezon City,Polytechnic University Of The Philippines,Grace Christian College,16.5
+Quezon City,Polytechnic University Of The Philippines,Miriam College,10.8
+Quezon City,Polytechnic University Of The Philippines,AMA Computer University Inc.,14
+Quezon City,Grace Christian College,Miriam College,15.7
+Quezon City,Grace Christian College,AMA Computer University Inc.,5.6
+Quezon City,Miriam College,AMA Computer University Inc.,11.5
+Makati City,Makati City Post Office,Assumption College,2.3
+Makati City,Makati City Post Office,iAcademy Plaza,1.1
+Makati City,Makati City Post Office,Mapua University Makati,1.7
+Makati City,Makati City Post Office,Asian Institute of Management,1.4
+Makati City,Makati City Post Office,Centro Escolar University Makati Campus,0.75
+Makati City,Assumption College,iAcademy Plaza,2.6
+Makati City,Assumption College,Mapua University Makati,2.4
+Makati City,Assumption College,Asian Institute of Management,0.9
+Makati City,Assumption College,Centro Escolar University Makati Campus,3.8
+Makati City,iAcademy Plaza,Mapua University Makati,0.65
+Makati City,iAcademy Plaza,Asian Institute of Management,1.4
+Makati City,iAcademy Plaza,Centro Escolar University Makati Campus,1.2
+Makati City,Mapua University Makati,Asian Institute of Management,1.6
+Makati City,Mapua University Makati,Centro Escolar University Makati Campus,1.3
+Makati City,Asian Institute of Management,Centro Escolar University Makati Campus,1.7
+Pasay City,Pasay City Post Office,Asian Institute of Maritime Studies,0.9
+Pasay City,Pasay City Post Office,Arellano University School of Law,1.8
+Pasay City,Pasay City Post Office,Datamex Institute Of Computer Technology,2.1
+Pasay City,Pasay City Post Office,Manila Tytana Colleges,2.9
+Pasay City,Pasay City Post Office,Manila Adventist College,1.4
+Pasay City,Asian Institute of Maritime Studies,Arellano University School of Law,2.4
+Pasay City,Asian Institute of Maritime Studies,Datamex Institute Of Computer Technology,2
+Pasay City,Asian Institute of Maritime Studies,Manila Tytana Colleges,3.1
+Pasay City,Asian Institute of Maritime Studies,Manila Adventist College,1.8
+Pasay City,Arellano University School of Law,Datamex Institute Of Computer Technology,0.16
+Pasay City,Arellano University School of Law,Manila Tytana Colleges,3.3
+Pasay City,Arellano University School of Law,Manila Adventist College,0.65
+Pasay City,Datamex Institute Of Computer Technology,Manila Tytana Colleges,3.2
+Pasay City,Datamex Institute Of Computer Technology,Manila Adventist College,0.5
+Pasay City,Manila Tytana Colleges,Manila Adventist College,3.1
