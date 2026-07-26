@@ -4,14 +4,14 @@ public class Route {
     private String place2;
     private double distance;
 
-    public Route(String origin, String place1, String place2, double distance) {
-        this.origin = origin;
+    public Route(String place1, String place2, double distance) {
         this.place1 = place1;
         this.place2 = place2;
         this.distance = distance;
     }
-
-    public Route(String place1, String place2, double distance) {
+    
+    public Route(String origin, String place1, String place2, double distance) {
+        this.origin = origin;
         this.place1 = place1;
         this.place2 = place2;
         this.distance = distance;

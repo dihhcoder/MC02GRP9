@@ -20,7 +20,7 @@ public class Reader {
                 if (data.length != 4)
                     isValid = false;
                 else {
-                    String origin = data[0].trim() + " Post Office";
+                    String origin = data[0].trim();
                     String place1 = data[1].trim();
                     String place2 = data[2].trim();
                     double distance = Double.parseDouble(data[3].trim());
