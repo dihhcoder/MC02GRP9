@@ -17,7 +17,7 @@ public class Reader {
                 String[] data = line.split(",");
 
                 if (data.length >= 4) {
-                    String origin = data[0].trim();
+                    String origin = data[0].trim() + " Post Office";
                     String place1 = data[1].trim();
                     String place2 = data[2].trim();
                     double distance = Double.parseDouble(data[3].trim());
