@@ -83,7 +83,7 @@ public class Input {
         return offices;
     }
 
-    public static List<String> readDestinations(Scanner sc, List<Route> routes, int mailCount) {
+    public static List<String> readDestinations(Scanner sc, List<Route> map, int mailCount) {
         List<String> destinations = new ArrayList<>();
         boolean isFound;
         String s;
@@ -94,7 +94,7 @@ public class Input {
                 System.out.print("Destination of Mail " + (i + 1) + ": ");
                 s = sc.nextLine();
 
-                for(Route r : routes) {
+                for(Route r : map) {
                     if(!isFound && s.equals(r.getPlace2()) && !destinations.contains(s)) {
                         isFound = true;
                         destinations.add(s);
