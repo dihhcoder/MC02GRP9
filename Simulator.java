@@ -98,18 +98,17 @@ public class Simulator {
                         boolean isPlace2Valid = r.getPlace2().equals(startingOffice.name());
 
                         for(String s : localDestinations) {
-                            if (s.equals(r.getPlace1()))
+                            if(s.equals(r.getPlace1()))
                                 isPlace1Valid = true;
 
-                            if (s.equals(r.getPlace2()))
+                            if(s.equals(r.getPlace2()))
                                 isPlace2Valid = true;
                         }
 
-                        if (isPlace1Valid && isPlace2Valid) {
-                            routeGraph.addEdge(new Vertex(r.getPlace1()),
-                                    new Vertex(r.getPlace2()), r.getDistance());
-                            routeGraph.addEdge(new Vertex(r.getPlace2()),
-                                    new Vertex(r.getPlace1()), r.getDistance());
+                        if(isPlace1Valid && isPlace2Valid) {
+                            Vertex place1 = new Vertex(r.getPlace1());
+                            Vertex place2 = new Vertex(r.getPlace2());
+                            routeGraph.addEdge(place1, place2, r.getDistance());
                         }
                     }
                 }
@@ -154,7 +153,6 @@ public class Simulator {
                         Vertex place1 = new Vertex(r.getPlace1());
                         Vertex place2 = new Vertex(r.getPlace2());
                         postOfficeGraph.addEdge(place1, place2, r.getDistance());
-                        postOfficeGraph.addEdge(place2, place1, r.getDistance());
                     }
                 }
 
