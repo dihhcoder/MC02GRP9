@@ -99,9 +99,9 @@ public class Simulator {
                 }
 
 
-                solver.findShortestPath(g, start);
-                toMail = solver.getBestPath();
-                maildist = solver.getBestPathDistance();
+                solver.findShortestCycle(g, start);
+                toMail = solver.getBestCycle();
+                maildist = solver.getBestCycleDistance();
 
                 //display
                 for(i = 0; i < toMail.size(); i++){
