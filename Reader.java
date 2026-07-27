@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Reader {
     public List<Route> readMap(String filePath) throws FileNotFoundException, IOException, NumberFormatException {
-        List<Route> map = new ArrayList<>();
+        List<Route> mapRoutes = new ArrayList<>();
         boolean isValid = true;
 
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -26,7 +26,7 @@ public class Reader {
                     double distance = Double.parseDouble(data[3].trim());
 
                     Route r = new Route(origin, place1, place2, distance);
-                    map.add(r);
+                    mapRoutes.add(r);
                 }
             }
         }
@@ -34,11 +34,11 @@ public class Reader {
         if(!isValid)
             throw new IOException();
 
-        return map;
+        return mapRoutes;
     }
 
     public List<Route> readOffices(String filePath) throws FileNotFoundException, IOException, NumberFormatException {
-        List<Route> offices = new ArrayList<>();
+        List<Route> officeRoutes = new ArrayList<>();
         boolean isValid = true;
 
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -56,7 +56,7 @@ public class Reader {
                     double distance = Double.parseDouble(data[2].trim());
 
                     Route r = new Route(place1, place2, distance);
-                    offices.add(r);
+                    officeRoutes.add(r);
                 }
             }
         }
@@ -64,6 +64,6 @@ public class Reader {
         if(!isValid)
             throw new IOException();
 
-        return offices;
+        return officeRoutes;
     }
 }

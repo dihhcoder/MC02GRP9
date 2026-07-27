@@ -36,7 +36,7 @@ public class Input {
     }
 
     public static List<Route> readMapFileLocation(Scanner sc) {
-        List<Route> map = new ArrayList<>();
+        List<Route> mapRoutes = new ArrayList<>();
         Reader r = new Reader();
         boolean isRead = false;
         String filePath;
@@ -45,7 +45,7 @@ public class Input {
             try {
                 System.out.print("Enter file location of map routes: ");
                 filePath = sc.nextLine();
-                map = r.readMap(filePath);
+                mapRoutes = r.readMap(filePath);
                 isRead = true;
             } catch(FileNotFoundException e) {
                 System.out.println("Could not locate file! Please try again.");
@@ -56,11 +56,11 @@ public class Input {
             }
         } while(!isRead);
 
-        return map;
+        return mapRoutes;
     }
 
     public static List<Route> readOfficeFileLocation(Scanner sc) {
-        List<Route> offices = new ArrayList<>();
+        List<Route> officeRoutes = new ArrayList<>();
         Reader r = new Reader();
         boolean isRead = false;
         String filePath;
@@ -69,7 +69,7 @@ public class Input {
             try {
                 System.out.print("Enter file location of office routes: ");
                 filePath = sc.nextLine();
-                offices = r.readOffices(filePath);
+                officeRoutes = r.readOffices(filePath);
                 isRead = true;
             } catch(FileNotFoundException e) {
                 System.out.println("Could not locate file! Please try again.");
@@ -80,7 +80,7 @@ public class Input {
             }
         } while(!isRead);
 
-        return offices;
+        return officeRoutes;
     }
 
     public static List<String> readDestinations(Scanner sc, List<Route> map, int mailCount) {
