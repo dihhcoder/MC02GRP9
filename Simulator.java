@@ -160,7 +160,8 @@ public class Simulator {
         boolean over = false;
         int choice = -1;
         do{
-            System.out.print("Input 1 to restart else input 0 to end: ");
+            System.out.println("Would you like to deliver more mail?");
+            System.out.print("Put 1 to restart, 0 to exit: ");
             choice = Input.readIntInput(sc, 0, 1);
             if(choice == 0){
                 over = true;
