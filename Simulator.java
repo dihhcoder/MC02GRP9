@@ -4,13 +4,13 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Scanner;
 
-public class Simulator2 {
+public class Simulator {
     private List<Route> mapRoutes;
     private List<Route> officeRoutes;
     private Solver solver;
     private boolean isOver;
 
-    public Simulator2() {
+    public Simulator() {
         this.mapRoutes = new ArrayList<>();
         this.officeRoutes = new ArrayList<>();
         this.solver = new Solver();
