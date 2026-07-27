@@ -109,19 +109,24 @@ public class Input {
         return destinations;
     }
 
-    public static String readStartingOffice(Scanner sc, List<Route> office){
-        String input;
-        boolean check =  false;
-        do{
+    public static String readStartingOffice(Scanner sc, List<Route> offices){
+        boolean isFound = false;
+        String s;
+
+        do {
             System.out.print("Input starting office: ");
-            input = sc.nextLine();
-            for(Route r : office) {
-                if(!check && input.equalsIgnoreCase(r.getPlace1()) || input.equalsIgnoreCase(r.getPlace2())){
-                    check = true;
+            s = sc.nextLine();
+
+            for(Route r : offices) {
+                if(!isFound && s.equalsIgnoreCase(r.getPlace1()) || s.equalsIgnoreCase(r.getPlace2())){
+                    isFound = true;
                 }
             }
-        } while(!check);
+
+            if(!isFound)
+                System.out.println("Invalid input! Please enter a valid starting office.");
+        } while(!isFound);
         
-        return input;
+        return s;
     }
 }
