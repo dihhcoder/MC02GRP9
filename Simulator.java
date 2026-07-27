@@ -86,8 +86,8 @@ public class Simulator {
                 for(String s : tempDestinations) // adds rejected back to unfiltered
                     pendingDestinations.add(s);
 
-                System.out.println("Local Destinations: " + localDestinations); // temp destinations for display
-                System.out.println("Pending Destinations: " + pendingDestinations);
+                /*System.out.println("Local Destinations: " + localDestinations); temp destinations for display
+                System.out.println("Pending Destinations: " + pendingDestinations);*/
                 System.out.println();
 
                 Graph routeGraph = new Graph();
