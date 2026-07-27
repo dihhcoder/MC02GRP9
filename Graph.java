@@ -29,10 +29,4 @@ public class Graph {
     public int getVertexCount() {
         return adjacencyList.size();
     }
-
-    /*
-    FOR DEBUG PURPOSES ONLY
-    public Set<Vertex> getVertices() {
-        return adjacencyList.keySet();
-    }*/
 }

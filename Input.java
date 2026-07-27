@@ -108,25 +108,4 @@ public class Input {
 
         return destinations;
     }
-
-    public static String readStartingOffice(Scanner sc, List<Route> offices){
-        boolean isFound = false;
-        String s;
-
-        do {
-            System.out.print("Input starting office: ");
-            s = sc.nextLine();
-
-            for(Route r : offices) {
-                if(!isFound && s.equalsIgnoreCase(r.getPlace1()) || s.equalsIgnoreCase(r.getPlace2())){
-                    isFound = true;
-                }
-            }
-
-            if(!isFound)
-                System.out.println("Invalid input! Please enter a valid starting office.");
-        } while(!isFound);
-        
-        return s;
-    }
 }
