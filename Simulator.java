@@ -26,7 +26,9 @@ public class Simulator {
         //starts the loop
         do{
             //gets the starting post office
-            start = new Vertex(Input.readStartingOffice(keyboard, office));
+            //start = new Vertex(Input.readStartingOffice(keyboard, office));
+            start = new Vertex("Manila City Post Office"); //TEMP
+            System.out.println("Starting office is manila post office for now");
             first = true;
 
             //gets destinations then puts them in an unfiltered deque
