@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Simulator {
+public class OldSimulator {
     public static void run(){
         List<Route> office = new ArrayList<>();
         List<Route> map = new ArrayList<>(); 
