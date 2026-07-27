@@ -17,9 +17,8 @@ public class Main {
 
             switch(choice) {
                 case 1:
-                    Simulator2 s = new Simulator2();
+                    Simulator s = new Simulator();
                     s.runSimulation(sc);
-                    //Simulator.run();
                     break;
                 case 2:
                     isRunning = false;
