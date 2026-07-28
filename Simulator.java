@@ -42,10 +42,10 @@ public class Simulator {
             for(int i = 0; i < offices.size(); i++) // shows unique post offices to choose from
                 System.out.println((i + 1) + " - " + offices.get(i));
 
-            System.out.print("Select the number of the city to start: ");
+            System.out.print("Select the number of the post office to start: ");
             int choice = Input.readIntInput(sc, 1, offices.size());
 
-            Vertex startingOffice = new Vertex(offices.get(choice - 1)); // gets starting post office
+            Vertex startOffice = new Vertex(offices.get(choice - 1)); // gets starting post office
 
             do {
                 System.out.print("Enter the amount of mails: ");
@@ -60,7 +60,7 @@ public class Simulator {
                 String originCity = null;
 
                 for(Route r : mapRoutes) { // gets origin city for filtering
-                    if(originCity == null && r.getPlace1().equals(startingOffice.name()))
+                    if(originCity == null && r.getPlace1().equals(startOffice.name()))
                         originCity = r.getOrigin();
                 }
 
@@ -86,16 +86,13 @@ public class Simulator {
                 for(String s : tempDestinations) // adds rejected back to unfiltered
                     pendingDestinations.add(s);
 
-                /*System.out.println("Local Destinations: " + localDestinations); // temp destinations for display
-                System.out.println("Pending Destinations: " + pendingDestinations);*/
                 System.out.println();
-
                 Graph routeGraph = new Graph();
 
                 for(Route r : mapRoutes) { // adds route to graph if it has filtered dest in place1 or 2
                     if(r.getOrigin().equals(originCity)) {
-                        boolean isPlace1Valid = r.getPlace1().equals(startingOffice.name());
-                        boolean isPlace2Valid = r.getPlace2().equals(startingOffice.name());
+                        boolean isPlace1Valid = r.getPlace1().equals(startOffice.name());
+                        boolean isPlace2Valid = r.getPlace2().equals(startOffice.name());
 
                         for(String s : localDestinations) {
                             if(s.equals(r.getPlace1()))
@@ -113,20 +110,21 @@ public class Simulator {
                     }
                 }
 
-                solver.findShortestCycle(routeGraph, startingOffice); // runs solver for local deliveries
+                solver.findShortestCycle(routeGraph, startOffice); // runs solver for local deliveries
                 List<Edge> deliveryRoute = new ArrayList<>();
                 deliveryRoute = solver.getBestCycle();
                 double deliveryDistance = solver.getBestCycleDistance();
 
                 for(Edge e : deliveryRoute) // temp route display
-                    System.out.println(e.getSource().name() + " -> " +
-                            e.getDestination().name() + " " +
-                            e.getWeight() + " km");
+                    System.out.printf("%s -> %s %.1f km%n",
+                            e.getSource().name(),
+                            e.getDestination().name(),
+                            e.getWeight());
 
                 System.out.println();
                 System.out.printf("Total Distance Covered: %.1f km%n", deliveryDistance);
 
-                List<String> nextPostOffices = new ArrayList<>(); // to get the next city
+                List<String> nextOffices = new ArrayList<>(); // to get the next city
 
                 for(String s : pendingDestinations) { // gets next possible post offices by origin city
                     for(Route r : mapRoutes) {
@@ -134,8 +132,8 @@ public class Simulator {
                             String toPostOffice = r.getOrigin() + " Post Office";
 
                             if(r.getPlace1().equals(toPostOffice)) {
-                                if(!nextPostOffices.contains(r.getPlace1()))
-                                    nextPostOffices.add(r.getPlace1());
+                                if(!nextOffices.contains(r.getPlace1()))
+                                    nextOffices.add(r.getPlace1());
                             }
                         }
                     }
@@ -145,9 +143,9 @@ public class Simulator {
 
                 for(Route r : officeRoutes) { // adds post office to graph if it has filtered dest in place1 or 2
                     boolean isPlace1Valid = r.getPlace1().equals(originCity + " Post Office") ||
-                            nextPostOffices.contains(r.getPlace1());
+                            nextOffices.contains(r.getPlace1());
                     boolean isPlace2Valid = r.getPlace2().equals(originCity + " Post Office") ||
-                            nextPostOffices.contains(r.getPlace2());
+                            nextOffices.contains(r.getPlace2());
 
                     if(isPlace1Valid && isPlace2Valid) {
                         Vertex place1 = new Vertex(r.getPlace1());
@@ -156,19 +154,18 @@ public class Simulator {
                     }
                 }
 
-                Vertex currentOffice = new Vertex(originCity + " Post Office"); // runs solver for office travel
-                solver.findShortestPath(postOfficeGraph, currentOffice);
+                Vertex currOffice = new Vertex(originCity + " Post Office"); // runs solver for office travel
+                solver.findShortestPath(postOfficeGraph, currOffice);
 
-                if(!solver.getBestPath().isEmpty()) { // swaps cities if next city is available
-                    String nextCity = solver.getBestPath().get(0).getDestination().name();
-                    String justCity = nextCity.replaceAll("(?i)\\sPost\\sOffice", "").trim();
-                    System.out.println("Next City: " + justCity);
-                    startingOffice = new Vertex(nextCity);
+                if(!solver.getBestPath().isEmpty()) { // swaps post offices if next office is available
+                    String nextOffice = solver.getBestPath().get(0).getDestination().name();
+                    System.out.println("Next Post Office: " + nextOffice);
+                    startOffice = new Vertex(nextOffice);
                 }
-                else System.out.println("No more cities to explore...");
+                else System.out.println("No more post offices to explore...");
 
                 System.out.println();
-                localDestinations.clear(); // clears filtered for next use
+                localDestinations.clear(); // clears filtered destinations for next use
 
             } while(!pendingDestinations.isEmpty());
 
