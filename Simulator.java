@@ -72,10 +72,9 @@ public class Simulator {
                 }
 
                 List<String> tempDestinations = new ArrayList<>(); // a list of rejected destinations for origin city
-                boolean hasRoute;
 
                 while(!pendingDestinations.isEmpty()) { // filtering process
-                    hasRoute = false;
+                    boolean hasRoute = false;
                     String s = pendingDestinations.poll();
 
                     for(Route r : mapRoutes) {
