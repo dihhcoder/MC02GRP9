@@ -233,9 +233,9 @@ public class Simulator {
 
     public void checkIfOver(Scanner sc) {
         System.out.print("Would you like to simulate again? (1 for Yes, 2 for No): ");
-        int choice2 = Input.readIntInput(sc, 1, 2);
+        int choice = Input.readIntInput(sc, 1, 2);
 
-        if(choice2 == 2)
+        if(choice == 2)
             isOver = true;
     }
 }
