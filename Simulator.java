@@ -46,10 +46,17 @@ public class Simulator {
             int choice = Input.readIntInput(sc, 1, offices.size());
 
             Vertex startOffice = new Vertex(offices.get(choice - 1)); // gets starting post office
+            boolean isFirstOffice = true;
 
             do {
                 System.out.print("Enter the amount of mails: ");
-                int mailCount = Input.readIntInput(sc, 1, -1);
+                int mailCount;
+
+                if(isFirstOffice) { // can accept 0 mails if not first office
+                    mailCount = Input.readIntInput(sc, 1, -1);
+                    isFirstOffice = false;
+                }
+                else mailCount = Input.readIntInput(sc, 0, -1);
 
                 List<String> destinations = new ArrayList<>();
                 destinations = Input.readDestinations(sc, mapRoutes, mailCount, pendingDestinations);
