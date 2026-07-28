@@ -57,7 +57,7 @@ public class Simulator {
             List<Edge> deliveryRoute = solver.getBestCycle();
             double deliveryDistance = solver.getBestCycleDistance();
 
-            for(Edge e : deliveryRoute) // temp route display
+            for(Edge e : deliveryRoute) // temp display for route
                 System.out.printf("%s -> %s %.1f km%n",
                         e.getSource().name(),
                         e.getDestination().name(),
