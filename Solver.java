@@ -32,83 +32,83 @@ public class Solver {
         return this.bestCycleDistance;
     }
 
-    public void findShortestPath(Graph g, Vertex start) {
+    public void findShortestPath(Graph graph, Vertex start) {
         bestPath.clear(); // reset path
         bestPathDistance = Double.POSITIVE_INFINITY; // reset path distance
 
         Set<Vertex> visited = new HashSet<>();
         visited.add(start);
 
-        List<Edge> currentRoute = new ArrayList<>();
-        findPath(g, start, visited, currentRoute, 0.0); // recursive helper call
+        List<Edge> currRoute = new ArrayList<>();
+        findPath(graph, start, visited, currRoute, 0.0); // recursive helper call
     }
 
-    public void findPath(Graph g, Vertex current, Set<Vertex> visited,
-                         List<Edge> currentRoute, double currentDistance) {
-        if(visited.size() == g.getVertexCount()) { // if all vertices are visited
-            if(currentDistance < bestPathDistance) {
-                bestPathDistance = currentDistance;
-                bestPath = new ArrayList<>(currentRoute); // clone current route
+    public void findPath(Graph graph, Vertex current, Set<Vertex> visited,
+                         List<Edge> currRoute, double currDistance) {
+        if(visited.size() == graph.getVertexCount()) { // if all vertices are visited
+            if(currDistance < bestPathDistance) {
+                bestPathDistance = currDistance;
+                bestPath = new ArrayList<>(currRoute); // clone current route
             }
         }
         else {
-            for(Edge e : g.getNeighbors(current)) { // check unvisited neighbors
+            for(Edge e : graph.getNeighbors(current)) { // check unvisited neighbors
                 Vertex next = e.getDestination();
 
                 if(!visited.contains(next)) { // if neighbor is unvisited
-                    double totalDistance = currentDistance + e.getWeight();
+                    double totalDistance = currDistance + e.getWeight();
 
                     visited.add(next);
-                    currentRoute.add(e);
+                    currRoute.add(e);
 
-                    findPath(g, next, visited, currentRoute, totalDistance); // recursive method call
+                    findPath(graph, next, visited, currRoute, totalDistance); // recursive method call
 
-                    currentRoute.remove(currentRoute.size() - 1); // backtracking
+                    currRoute.remove(currRoute.size() - 1); // backtracking
                     visited.remove(next);
                 }
             }
         }
     }
 
-    public void findShortestCycle(Graph g, Vertex start) {
+    public void findShortestCycle(Graph graph, Vertex start) {
         bestCycle.clear(); // reset cycle
         bestCycleDistance = Double.POSITIVE_INFINITY; // reset cycle distance
 
         Set<Vertex> visited = new HashSet<>();
         visited.add(start);
 
-        List<Edge> currentRoute = new ArrayList<>();
-        findCycle(g, start, start, visited, currentRoute, 0.0); // recursive helper call
+        List<Edge> currRoute = new ArrayList<>();
+        findCycle(graph, start, start, visited, currRoute, 0.0); // recursive helper call
     }
 
-    public void findCycle(Graph g, Vertex start, Vertex current, Set<Vertex> visited,
-                          List<Edge> currentRoute, double currentDistance) {
-        if(visited.size() == g.getVertexCount()) { // if all vertices are visited
-            for(Edge e : g.getNeighbors(current)) { // check unvisited neighbors
+    public void findCycle(Graph graph, Vertex start, Vertex current, Set<Vertex> visited,
+                          List<Edge> currRoute, double currDistance) {
+        if(visited.size() == graph.getVertexCount()) { // if all vertices are visited
+            for(Edge e : graph.getNeighbors(current)) { // check unvisited neighbors
                 if(e.getDestination().equals(start)) { // if edge ends with start
-                    double totalDistance = currentDistance + e.getWeight();
+                    double totalDistance = currDistance + e.getWeight();
 
                     if(totalDistance < bestCycleDistance) {
                         bestCycleDistance = totalDistance;
-                        bestCycle = new ArrayList<>(currentRoute); // clone current route
+                        bestCycle = new ArrayList<>(currRoute); // clone current route
                         bestCycle.add(e); // add edge to complete cycle
                     }
                 }
             }
         }
         else {
-            for(Edge e : g.getNeighbors(current)) { // check unvisited neighbors
+            for(Edge e : graph.getNeighbors(current)) { // check unvisited neighbors
                 Vertex next = e.getDestination();
 
                 if(!visited.contains(next)) { // if neighbor is unvisited
-                    double totalDistance = currentDistance + e.getWeight();
+                    double totalDistance = currDistance + e.getWeight();
 
                     visited.add(next);
-                    currentRoute.add(e);
+                    currRoute.add(e);
 
-                    findCycle(g, start, next, visited, currentRoute, totalDistance); // recursive method call
+                    findCycle(graph, start, next, visited, currRoute, totalDistance); // recursive method call
 
-                    currentRoute.remove(currentRoute.size() - 1); // backtracking
+                    currRoute.remove(currRoute.size() - 1); // backtracking
                     visited.remove(next);
                 }
             }
