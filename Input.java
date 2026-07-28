@@ -1,9 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Input {
     public static int readIntInput(Scanner sc, int min, int max) {
@@ -83,7 +80,8 @@ public class Input {
         return officeRoutes;
     }
 
-    public static List<String> readDestinations(Scanner sc, List<Route> map, int mailCount) {
+    public static List<String> readDestinations(Scanner sc, List<Route> map, int mailCount,
+                                                Deque<String> pendingDestinations) {
         List<String> destinations = new ArrayList<>();
         boolean isFound;
         String s;
@@ -95,7 +93,9 @@ public class Input {
                 s = sc.nextLine();
 
                 for(Route r : map) {
-                    if(!isFound && s.equals(r.getPlace2()) && !destinations.contains(s)) {
+                    if(!isFound && s.equals(r.getPlace2()) &&
+                            !destinations.contains(s) &&
+                            !pendingDestinations.contains(s)) {
                         isFound = true;
                         destinations.add(s);
                     }

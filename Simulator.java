@@ -52,7 +52,7 @@ public class Simulator {
                 int mailCount = Input.readIntInput(sc, 1, -1);
 
                 List<String> destinations = new ArrayList<>();
-                destinations = Input.readDestinations(sc, mapRoutes, mailCount);
+                destinations = Input.readDestinations(sc, mapRoutes, mailCount, pendingDestinations);
 
                 for(String s : destinations) // puts destinations in an unfiltered deque
                     pendingDestinations.add(s);
