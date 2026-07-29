@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean isRunning = true;
+        String prompt = "Enter your choice: ";
 
         while(isRunning) {
             System.out.println("+---------------------------------------+"); // temporary intro display
@@ -12,8 +13,7 @@ public class Main {
             System.out.println("Please select an option:");
             System.out.println("1. Start Simulation");
             System.out.println("2. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = Input.readIntInput(sc, 1, 2);
+            int choice = Input.readIntInput(sc, 1, 2, prompt);
 
             switch(choice) {
                 case 1:

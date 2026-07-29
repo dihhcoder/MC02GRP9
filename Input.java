@@ -3,12 +3,13 @@ import java.io.IOException;
 import java.util.*;
 
 public class Input {
-    public static int readIntInput(Scanner sc, int min, int max) {
+    public static int readIntInput(Scanner sc, int min, int max, String prompt) {
         int n = -1;
         boolean isValid = false;
 
         do {
             try {
+                System.out.print(prompt);
                 n = sc.nextInt();
                 sc.nextLine();
 

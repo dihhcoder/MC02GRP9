@@ -102,8 +102,8 @@ public class Simulator {
     }
 
     public Vertex selectStartingOffice(Scanner sc, List<String> offices) {
-        System.out.print("Select the number of the post office to start: ");
-        int choice = Input.readIntInput(sc, 1, offices.size());
+        String prompt = "Select the number of the post office to start: ";
+        int choice = Input.readIntInput(sc, 1, offices.size(), prompt);
 
         Vertex start = new Vertex(offices.get(choice - 1));
 
@@ -111,12 +111,12 @@ public class Simulator {
     }
 
     public int readMailCount(Scanner sc, boolean isFirst) {
-        System.out.print("Enter the amount of mails: ");
+        String prompt = "Enter the amount of mails: ";
         int mailCount;
 
         if(isFirst)
-            mailCount = Input.readIntInput(sc, 1, -1);
-        else mailCount = Input.readIntInput(sc, 0, -1);
+            mailCount = Input.readIntInput(sc, 1, -1, prompt);
+        else mailCount = Input.readIntInput(sc, 0, -1, prompt);
 
         return mailCount;
     }
@@ -232,8 +232,8 @@ public class Simulator {
     }
 
     public void checkIfOver(Scanner sc) {
-        System.out.print("Would you like to simulate again? (1 for Yes, 2 for No): ");
-        int choice = Input.readIntInput(sc, 1, 2);
+        String prompt = "Would you like to simulate again? (1 for Yes, 2 for No): ";
+        int choice = Input.readIntInput(sc, 1, 2, prompt);
 
         if(choice == 2)
             isOver = true;
