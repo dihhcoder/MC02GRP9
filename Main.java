@@ -2,26 +2,27 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         boolean isRunning = true;
         String prompt = "Enter your choice: ";
 
         while(isRunning) {
             Display.introMessage();
-            int choice = Input.readIntInput(sc, 1, 2, prompt);
+            int choice = Input.readIntInput(keyboard, prompt, 1, 2);
 
             switch(choice) {
                 case 1:
-                    Simulator s = new Simulator();
-                    s.runSimulation(sc);
+                    Simulator simulator = new Simulator();
+                    simulator.runSimulation(keyboard);
                     break;
                 case 2:
                     isRunning = false;
+                    System.out.println();
                     Display.exitMessage();
                     break;
             }
         }
 
-        sc.close();
+        keyboard.close();
     }
 }

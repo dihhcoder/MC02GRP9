@@ -18,6 +18,8 @@ public class Simulator {
     }
 
     public void runSimulation(Scanner sc) {
+        System.out.println("Starting the simulation...");
+        System.out.println();
         mapRoutes = Input.readMapFileLocation(sc);
         officeRoutes = Input.readOfficeFileLocation(sc);
 
@@ -25,6 +27,7 @@ public class Simulator {
             List<String> localDestinations = new ArrayList<>();
             Deque<String> pendingDestinations = new ArrayDeque<>();
 
+            System.out.println();
             List<String> offices = getUniquePostOffices();
             Vertex startOffice = selectStartingOffice(sc, offices);
 
@@ -59,22 +62,29 @@ public class Simulator {
 
             if (localDestinations.isEmpty() || Double.isInfinite(deliveryDistance) || deliveryRoute.isEmpty()) {
                 Display.showNoLocalMailMessage(originCity);
-                Display.showTotalDistance(0.0, originCity);
+                Display.showTotalDistance(originCity, 0.0);
             }
             else {
                 System.out.println("Starting delivery run for " + originCity + "...");
+                int count = 0;
 
-                for(Edge edge : deliveryRoute) {
+                for(Edge e : deliveryRoute) {
+                    count++;
+                    boolean isLast = count == deliveryRoute.size();
+
                     Display.clearScreen();
                     Display.showStorage(pendingDestinations, localDestinations);
-                    Display.showRoute(edge);
+                    Display.showRoute(e, isLast);
 
-                    System.out.println("Delivering to " + edge.getDestination().name() + "...");
-                    Display.animateDelivery(edge.getDestination().name());
+                    if(!isLast)
+                        System.out.println("Delivering to " + e.getDestination().name() + "...");
+                    else System.out.println("Returning to " + e.getDestination().name() + "...");
 
-                    localDestinations.remove(edge.getDestination().name());
+                    Display.animateDelivery(e.getDestination().name(), isLast);
+                    localDestinations.remove(e.getDestination().name());
                 }
-                Display.showTotalDistance(deliveryDistance, originCity);
+
+                Display.showTotalDistance(originCity, deliveryDistance);
             }
 
             List<String> nextOffices = findNextPostOffices(pendingDestinations);
@@ -84,8 +94,6 @@ public class Simulator {
             solver.findShortestPath(postOfficeGraph, currOffice);
 
             startOffice = updateStartingOffice(startOffice);
-            System.out.println();
-
             localDestinations.clear();
 
         } while(!pendingDestinations.isEmpty());
@@ -114,9 +122,11 @@ public class Simulator {
 
     public Vertex selectStartingOffice(Scanner sc, List<String> offices) {
         String prompt = "Select the number of the post office to start: ";
-        int choice = Input.readIntInput(sc, 1, offices.size(), prompt);
+        int choice = Input.readIntInput(sc, prompt, 1, offices.size());
+        System.out.println();
 
         Vertex start = new Vertex(offices.get(choice - 1));
+        System.out.println("First Post Office: " + start.name());
 
         return start;
     }
@@ -126,8 +136,8 @@ public class Simulator {
         int mailCount;
 
         if(isFirst)
-            mailCount = Input.readIntInput(sc, 1, -1, prompt);
-        else mailCount = Input.readIntInput(sc, 0, -1, prompt);
+            mailCount = Input.readIntInput(sc, prompt, 1, -1);
+        else mailCount = Input.readIntInput(sc, prompt, 0, -1);
 
         return mailCount;
     }
@@ -244,7 +254,7 @@ public class Simulator {
 
     public void checkIfOver(Scanner sc) {
         String prompt = "Would you like to simulate again? (1 for Yes, 2 for No): ";
-        int choice = Input.readIntInput(sc, 1, 2, prompt);
+        int choice = Input.readIntInput(sc, prompt, 1, 2);
 
         if(choice == 2)
             isOver = true;

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Input {
-    public static int readIntInput(Scanner sc, int min, int max, String prompt) {
+    public static int readIntInput(Scanner sc, String prompt, int min, int max) {
         int n = -1;
         boolean isValid = false;
 
