@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         boolean isRunning = true;
-        String prompt = "Enter your choice: ";
 
         while(isRunning) {
             Display.introMessage();
+            String prompt = "Enter your choice: ";
             int choice = Input.readIntInput(keyboard, prompt, 1, 2);
 
             switch(choice) {
