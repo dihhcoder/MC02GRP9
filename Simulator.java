@@ -57,14 +57,25 @@ public class Simulator {
             List<Edge> deliveryRoute = solver.getBestCycle();
             double deliveryDistance = solver.getBestCycleDistance();
 
-            for(Edge e : deliveryRoute) // temp display for route
-                System.out.printf("%s -> %s %.1f km%n",
-                        e.getSource().name(),
-                        e.getDestination().name(),
-                        e.getWeight());
+            if (localDestinations.isEmpty() || Double.isInfinite(deliveryDistance) || deliveryRoute.isEmpty()) {
+                Display.showNoLocalMailMessage(originCity);
+                Display.showTotalDistance(0.0, originCity);
+            }
+            else {
+                System.out.println("Starting delivery run for " + originCity + "...");
 
-            System.out.println();
-            System.out.printf("Total Distance Covered: %.1f km%n", deliveryDistance); // end of display
+                for(Edge edge : deliveryRoute) {
+                    Display.clearScreen();
+                    Display.showStorage(pendingDestinations, localDestinations);
+                    Display.showRoute(edge);
+
+                    System.out.println("Delivering to " + edge.getDestination().name() + "...");
+                    Display.animateDelivery(edge.getDestination().name());
+
+                    localDestinations.remove(edge.getDestination().name());
+                }
+                Display.showTotalDistance(deliveryDistance, originCity);
+            }
 
             List<String> nextOffices = findNextPostOffices(pendingDestinations);
 
